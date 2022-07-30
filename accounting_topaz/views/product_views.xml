@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_stock_tree_inherit_topaz" model="ir.ui.view">
+            <field name="name">product.stock.tree.inherit_topaz</field>
+            <field name="model">product.product</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="z_package_barcode"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
