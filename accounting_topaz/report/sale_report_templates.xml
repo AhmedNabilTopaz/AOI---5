@@ -50,19 +50,19 @@
             <div id="informations_topaz" class="row mt32 mb32">
                 <div class="col-auto col-3 mw-100 mb-2">
                     <strong>Patient Name:</strong>
-                    <p class="m-0" t-field="o.patient_name"/>
+                    <p class="m-0" t-field="o.z_patient_name"/>
                 </div>
                 <div class="col-auto col-3 mw-100 mb-2">
                     <strong>Doctor Name:</strong>
-                    <p class="m-0" t-field="o.doctor_name"/>
+                    <p class="m-0" t-field="o.z_doctor_name"/>
                 </div>
                 <div class="col-auto col-3 mw-100 mb-2">
                     <strong>PO Number:</strong>
-                    <p class="m-0" t-field="o.po_number"/>
+                    <p class="m-0" t-field="o.z_po_number"/>
                 </div>
                 <div class="col-auto col-3 mw-100 mb-2">
                     <strong>Permission Number:</strong>
-                    <p class="m-0" t-field="o.permission_number"/>
+                    <p class="m-0" t-field="o.z_permission_number"/>
                 </div>
             </div>
         </xpath>
