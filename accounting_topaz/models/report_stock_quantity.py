@@ -6,4 +6,11 @@ from odoo import fields, models, tools
 
 class ReportStockQuantity(models.Model):
     _inherit = 'report.stock.quantity'
-    z_package_barcode=fields.Char('Full Barcode',related='product_tmpl_id.z_package_barcode')
+    z_package_barcode = fields.Char('Full Barcode', compute='_getdata', store=True)
+
+    def _getdata(self):
+        sql = """select z_package_barcode from product_template where id=%s"""
+        self.env.cr.execute(sql, self.product_tmpl_id)
+        for rec in self.env.cr.fetchall():
+            self.z_package_barcode = rec[0]
+            print("Name is", rec[0])
