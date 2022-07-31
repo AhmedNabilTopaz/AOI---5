@@ -33,6 +33,7 @@ class ReportStockQuantity(models.Model):
             m.id,
             m.product_id,
             pt.id as product_tmpl_id,
+            pt.z_package_barcode as z_package_barcode
             CASE
                 WHEN whs.id IS NOT NULL AND whd.id IS NULL THEN 'out'
                 WHEN whd.id IS NOT NULL AND whs.id IS NULL THEN 'in'
