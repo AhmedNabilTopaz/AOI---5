@@ -13,3 +13,4 @@ from . import purchase_report
 from . import sale_report
 from . import stock_valuation_layer
 from . import stock_move_line
+from . import report_stock_quantity
