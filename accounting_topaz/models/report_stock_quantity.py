@@ -87,6 +87,7 @@ class ReportStockQuantity(models.Model):
             m.id,
             m.product_id,
             pt.id as product_tmpl_id,
+            pt.z_package_barcode as z_package_barcode,
             'forecast' as state,
             GENERATE_SERIES(
             CASE
