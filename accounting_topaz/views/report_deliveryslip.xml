@@ -1,0 +1,34 @@
+<odoo>
+    <template id="report_delivery_document_inherit_topaz" inherit_id="stock.report_delivery_document">
+        <!--        <xpath expr="//div[@name='div_sched_date']" position="after">-->
+        <!--            <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id" class="col-auto">-->
+        <!--                <strong>Carrier:</strong>-->
+        <!--                <p t-field="o.carrier_id"/>-->
+        <!--            </div>-->
+        <!--            <div t-if="o.shipping_weight" class="col-auto">-->
+        <!--                <strong>Total Weight:</strong>-->
+        <!--                <br/>-->
+        <!--                <span t-field="o.shipping_weight"/>-->
+        <!--                <span t-field="o.weight_uom_name"/>-->
+        <!--            </div>-->
+        <!--            <div t-if="o.carrier_tracking_ref" class="col-auto">-->
+        <!--                <strong>Tracking Number:</strong>-->
+        <!--                <p t-field="o.carrier_tracking_ref"/>-->
+        <!--            </div>-->
+        <!--            <t t-set="has_hs_code" t-value="o.move_lines.filtered(lambda l: l.product_id.hs_code)"/>-->
+        <!--        </xpath>-->
+
+        <xpath expr="//table[@name='stock_move_table']/thead/tr/th[@name='th_sm_product']" position="before">
+            <th name="th_full_barcode">Full Barcode</th>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/tbody/tr/td" position="before">
+            <td name="td_package_barcode">
+                <!--                <span t-field="line.z_package_barcode"/>-->
+                <div t-field="move.z_package_barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="move.z_package_barcode"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>
