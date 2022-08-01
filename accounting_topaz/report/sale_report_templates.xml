@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="grid_report_saleorder_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_package_group" class="text-left">Full Barcode</th>
+        </xpath>
+        <xpath expr="//td[@name='td_name']" position="before">
+            <td name="td_package_barcode">
+                <!--                <span t-field="line.z_package_barcode" t-esc="o.ean13"/>-->
+                <div t-field="line.z_package_barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="line.z_package_barcode"/>
+            </td>
+        </xpath>
+    </template>
+    <template id="grid_purchaseorder_inherit_topaz" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_package_group" class="text-left">Full Barcode</th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="before">
+            <td name="td_package_barcode">
+                <!--                <span t-field="line.z_package_barcode"/>-->
+                <div t-field="line.z_package_barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="line.z_package_barcode"/>
+            </td>
+        </xpath>
+    </template>
+    <template id="grid_purchasequtaion_inherit_topaz" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_package_group" class="text-left">Full Barcode</th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="before">
+            <td name="td_package_barcode">
+                <!--                <span t-field="order_line.z_package_barcode"/>-->
+                <div t-field="order_line.z_package_barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="order_line.z_package_barcode"/>
+            </td>
+        </xpath>
+    </template>
+    <template id="stock_stock_report_view_search_inherit_topaz" inherit_id="stock.stock_report_view_search">
+        <xpath expr="//field[@name='product_id']" position="before">
+            <field name="z_package_barcode"/>
+        </xpath>
+    </template>
+    <template id="l10n_ca_report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='informations']" position="before">
+            <div id="informations_topaz" class="row mt32 mb32">
+                <div class="col-auto col-3 mw-100 mb-2">
+                    <strong>Patient Name:</strong>
+                    <p class="m-0" t-field="o.z_patient_name"/>
+                </div>
+                <div class="col-auto col-3 mw-100 mb-2">
+                    <strong>Doctor Name:</strong>
+                    <p class="m-0" t-field="o.z_doctor_name"/>
+                </div>
+                <div class="col-auto col-3 mw-100 mb-2">
+                    <strong>PO Number:</strong>
+                    <p class="m-0" t-field="o.z_po_number"/>
+                </div>
+                <div class="col-auto col-3 mw-100 mb-2">
+                    <strong>Permission Number:</strong>
+                    <p class="m-0" t-field="o.z_permission_number"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+ <template id="stock_report_picking_inherit_topaz" inherit_id="stock.report_picking">
+        <xpath expr="//th[@name='th_product']" position="before">
+            <th name="th_package_group" class="text-left">Full Barcode</th>
+        </xpath>
+        <xpath expr="//t[@t-foreach='o.move_line_ids_without_package']/tr/td" position="before">
+            <td name="td_package_barcode">
+                <!--                <span t-field="line.z_package_barcode"/>-->
+                <div t-field="ml.z_package_barcode"
+                     t-options="{'widget': 'barcode', 'symbology': 'EAN13', 'width': 300, 'height': 50, 'img_style': 'width:100%;height:35%;'}"/>
+                <strong t-field="ml.z_package_barcode"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

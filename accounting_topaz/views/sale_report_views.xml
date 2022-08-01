@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_view_order_product_search_inherit_topaz" model="ir.ui.view">
+            <field name="name">sale_view_order_product_search_inherit_topaz</field>
+            <field name="model">sale.report</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="sale.view_order_product_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='Product']" position="before">
+                    <filter string="Full Barcode" name="group_full_barcode" context="{'group_by':'z_package_barcode'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
