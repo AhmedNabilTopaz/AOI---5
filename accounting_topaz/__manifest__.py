@@ -22,6 +22,7 @@
         'views/stock_move_line_views.xml',
         'views/sale_report_views.xml',
         'views/report_deliveryslip.xml',
+        'views/report_stock_quantity.xml',
         'report/sale_report_templates.xml'
     ],
 
